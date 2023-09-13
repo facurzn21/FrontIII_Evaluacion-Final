@@ -1,18 +1,17 @@
-import { useState } from 'react'
+import React from 'react';
 import './App.css'
+import { UserProvider } from './contexts/UserContext';
 import Cards from './components/Card'
 
 
 
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <Cards/>
-    </>
+    <UserProvider>
+      <Cards />
+    </UserProvider>
   )
 }
 
-export default App
+export default App;
