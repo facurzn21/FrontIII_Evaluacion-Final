@@ -4,7 +4,7 @@ import { UserContext } from '../contexts/UserContext';
 
 
 const MyCard = ({ user }) => (
-  <Card>
+  <Card style={{ margin: "15px 0", minHeight: "250px", maxHeight: "250px" }}>
     <CardBody>
       <CardTitle tag="h5">{user.name}</CardTitle>
       <CardSubtitle tag="h6" className="mb-2 text-muted">{user.username}</CardSubtitle>
@@ -15,7 +15,7 @@ const MyCard = ({ user }) => (
 
 const Cards = (props) => {
   const users = useContext(UserContext);
-
+  
   return (
     <Container>
       <Row>
