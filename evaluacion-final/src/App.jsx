@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import Example from './components/Card'
+import Cards from './components/Card'
+
+
 
 
 function App() {
@@ -8,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Example/>
+      <Cards/>
     </>
   )
 }
