@@ -1,0 +1,19 @@
+.myCard {
+  margin: 15px 0;
+  min-height: 250px;
+  max-height: 250px;
+}
+
+.myCard:hover {
+  cursor: pointer;
+  background-color: #d3d3d3; 
+}
+
+.cardImage {
+  height: 100px;
+}
+
+.cardImg {
+  width: 60%;
+  height: auto;
+}
