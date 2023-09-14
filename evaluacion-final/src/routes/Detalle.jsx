@@ -9,20 +9,32 @@ const Detail = () => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then((response) => response.json())
-      .then((data) => setUser(data));
+    if (id) {
+      fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
+        })
+        .then(data => setUser(data))
+        .catch(() => setUser(null));
+    } else {
+      setUser(null);
+    }
   }, [id]);
 
   return (
     <div>
-      { user && 
-        <div>
-          <h2>{user.name}</h2>
-          <p>{user.phone}</p>
-          <a href={`http://${user.website}`}>{user.website}</a>
-          <p>{user.email}</p>
-        </div>
+      {!user ? <p> Aún no se ha seleccionado nada, haz clic en alguno de los usuarios para ver más detalles.</p>
+        : (
+          <div>
+            <h2>{user.name}</h2>
+            <p>{user.phone}</p>
+            <a href={`http://${user.website}`}>{user.website}</a>
+            <p>{user.email}</p>
+          </div>
+        )
       }
     </div>
   );
