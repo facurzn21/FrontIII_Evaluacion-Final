@@ -21,17 +21,16 @@ const MyCard = ({ user }) => {
         <CardSubtitle tag="h7" className="mb-2 text-muted">{user.username}</CardSubtitle>
       </CardBody>
       <Button
-        className="favoriteBtn"
+        className={`favoriteBtn ${isFavorite ? "favorite" : ""}`}
         onClick={(e) => {
           e.stopPropagation();
           addOrRemoveFavorite(user);
         }}
-        color={isFavorite ? 'black' : 'gray'}
       >
         ☆
       </Button>
       <Button
-        className="detailsBtn"
+        className="detailsBtn mt-3"
         onClick={() => navigate(`/details/${user.id}`)}
       >
         Ver Detalles
