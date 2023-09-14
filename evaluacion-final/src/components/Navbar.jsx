@@ -1,17 +1,27 @@
-import React from 'react'
-import { UserContext } from '../contexts/UserContext';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { Navbar, Nav, NavItem, NavLink as RSNavLink } from 'reactstrap';
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+const AppNavbar = () => {
 
-const Navbar = () => {
-  const { theme, toggleTheme } = useContext(UserContext);
   return (
-    <nav>
-      {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-      {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-      <button onClick={toggleTheme}>Change theme</button>
-    </nav>
+    <Navbar>
+      <Nav>
+        <NavItem>
+          <RSNavLink><NavLink to='/home'>Home</NavLink></RSNavLink>
+        </NavItem>
+        <NavItem>
+          <RSNavLink><NavLink to='/fav'>Favoritos</NavLink></RSNavLink>
+        </NavItem>
+        <NavItem>
+          <RSNavLink><NavLink to='/details'>Detalle</NavLink></RSNavLink>
+        </NavItem>
+        <NavItem>
+          <RSNavLink><NavLink to='/contact'>Contacto</NavLink></RSNavLink>
+        </NavItem>
+      </Nav>
+    </Navbar>
   )
 }
 
-export default Navbar
+export default AppNavbar;

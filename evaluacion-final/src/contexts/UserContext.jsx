@@ -4,11 +4,6 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
-  const [theme, setTheme] = useState('light');
-
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  }
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/users')
@@ -17,7 +12,7 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ users, theme, toggleTheme }}>
+    <UserContext.Provider value={users}>
       {children}
     </UserContext.Provider>
   );
