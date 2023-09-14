@@ -7,8 +7,12 @@ import './Card.css';
 
 const MyCard = ({ user }) => {
   const navigate = useNavigate();
+  const { favorites, addOrRemoveFavorite } = useContext(UserContext);
+
+  const isFavorite = favorites.some(fav => fav.id === user.id);
+
   return (
-    <Card className="myCard" onClick={() => navigate(`/details/${user.id}`)}>
+    <Card className="myCard">
       <div className="cardImage">
         <img className="cardImg" src={doctorImage} alt="Doctor" />
       </div>
@@ -16,12 +20,28 @@ const MyCard = ({ user }) => {
         <CardTitle tag="h6">{user.name}</CardTitle>
         <CardSubtitle tag="h7" className="mb-2 text-muted">{user.username}</CardSubtitle>
       </CardBody>
+      <Button
+        className="favoriteBtn"
+        onClick={(e) => {
+          e.stopPropagation();
+          addOrRemoveFavorite(user);
+        }}
+        color={isFavorite ? 'black' : 'gray'}
+      >
+        ☆
+      </Button>
+      <Button
+        className="detailsBtn"
+        onClick={() => navigate(`/details/${user.id}`)}
+      >
+        Ver Detalles
+      </Button>
     </Card>
-  )
+  );
 };
 
 const Cards = (props) => {
-  const users = useContext(UserContext);
+  const { users } = useContext(UserContext);
   return (
     <Container>
       <Row>

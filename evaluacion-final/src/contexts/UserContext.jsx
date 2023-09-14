@@ -1,18 +1,41 @@
 import React, { createContext, useState, useEffect } from 'react';
 
+
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    // llamada a la API para obtener los usuarios
+    fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => setUsers(data));
   }, []);
 
+  useEffect(() => {
+    // almacenar los favoritos en el localstorage
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
+
+  const addOrRemoveFavorite = (user) => {
+    setFavorites((prevFavorites) => {
+      const isAlreadyFavorite = prevFavorites.some((fav) => fav.id === user.id);
+      if (isAlreadyFavorite) {
+        // si ya es favorito, quitamos al usuario de los favoritos
+        return prevFavorites.filter((fav) => fav.id !== user.id);
+      } else {
+        // si no, agregamos al usuario a los favoritos
+        return [...prevFavorites, user];
+      }
+    });
+  };
+
   return (
-    <UserContext.Provider value={users}>
+    <UserContext.Provider value={{ users, favorites, addOrRemoveFavorite }}>
       {children}
     </UserContext.Provider>
   );
