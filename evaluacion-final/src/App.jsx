@@ -14,8 +14,7 @@ import Footer from "./components/Footer";
 const App = () => {
   return (
     <FavoritosProvider>
-      {" "}
-      {/* Incluye FavoritosProvider en tu jerarquía de componentes */}
+     
       <UserProvider>
         <Router>
           <AppNavbar />
