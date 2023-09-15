@@ -35,6 +35,11 @@
 }
 
 .favoriteBtn.favorite {
-  background: transparent;
-  color: red;
+  background: #b2ffff;
+  color: blue;
+}
+
+.favoriteBtn.favorite:hover {
+  background: #87cefa;
+  color: #ffffff;
 }
