@@ -1,13 +1,10 @@
 import React, { useContext } from "react";
 import MyCard from "../components/Card";
 import { UserContext } from "../contexts/UserContext";
-import Cards from "../components/Card";
-
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
   const { favorites } = useContext(UserContext);
+  console.log(`Rendering Favs with ${favorites.length} favorite(s)`);
   return (
     <>
       <h1>Dentists Favs</h1>
@@ -19,5 +16,4 @@ const Favs = () => {
     </>
   );
 };
-
 export default Favs;

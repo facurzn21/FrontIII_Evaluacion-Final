@@ -1,5 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
-
+import React, { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
@@ -8,6 +7,7 @@ export const UserProvider = ({ children }) => {
   const [favorites, setFavorites] = useState(
     JSON.parse(localStorage.getItem("favorites")) || []
   );
+  console.log(favorites);
 
   useEffect(() => {
     // llamada a la API para obtener los usuarios

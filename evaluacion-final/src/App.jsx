@@ -1,29 +1,34 @@
-import React from 'react';
-import './App.css'
-import { UserProvider } from './contexts/UserContext';
-import Cards from './components/Card'
+import React from "react";
+import "./App.css";
+import { UserProvider } from "./contexts/UserContext";
+import { FavoritosProvider } from "./contexts/FavoritesContext";
+import Cards from "./components/Card";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AppNavbar from './components/Navbar';
-import Contacto from './routes/Contacto';
-import Detalle from './routes/Detalle';
-import Favoritos from './routes/Favoritos';
-import Home from './routes/Home';
+import AppNavbar from "./components/Navbar";
+import Contacto from "./routes/Contacto";
+import Detalle from "./routes/Detalle";
+import Favoritos from "./routes/Favoritos";
+import Home from "./routes/Home";
 
 const App = () => {
   return (
-    <UserProvider>
-      <Router>
-        <AppNavbar />
-        <Routes>
-          <Route path='/home' element={<Home />} />
-          <Route path='/fav' element={<Favoritos />} />
-          <Route path='/details/:id?' element={<Detalle />} />
-          <Route path='/contact' element={<Contacto />} />
-          <Route path='/' element={<Cards />} />
-        </Routes>
-      </Router>
-    </UserProvider>
-  )
-}
+    <FavoritosProvider>
+      {" "}
+      {/* Incluye FavoritosProvider en tu jerarquía de componentes */}
+      <UserProvider>
+        <Router>
+          <AppNavbar />
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/fav" element={<Favoritos />} />
+            <Route path="/details/:id?" element={<Detalle />} />
+            <Route path="/contact" element={<Contacto />} />
+            <Route path="/*" element={<Cards />} />
+          </Routes>
+        </Router>
+      </UserProvider>
+    </FavoritosProvider>
+  );
+};
 
 export default App;
