@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input, Alert } from "reactstrap";
+import './Form.css';
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -12,8 +13,8 @@ const ContactForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <FormGroup>
+    <Form onSubmit={handleSubmit} className="form">
+      <FormGroup className="form-group">
         <Label for="name">Nombre y Apellido:</Label>
         <Input
           type="text"
@@ -21,7 +22,7 @@ const ContactForm = () => {
           onChange={(e) => setName(e.target.value)}
         />
       </FormGroup>
-      <FormGroup>
+      <FormGroup className="form-group">
         <Label for="email">Email:</Label>
         <Input
           type="email"
@@ -32,7 +33,7 @@ const ContactForm = () => {
       <Button type="submit">Enviar</Button>
 
       {showMessage && (
-        <Alert color="success" style={{ marginTop: "1em" }}>
+        <Alert color="success" className="show-message">
           Gracias {name} lo contactaremos en la brevedad
         </Alert>
       )}
