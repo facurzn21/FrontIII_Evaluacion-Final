@@ -9,6 +9,7 @@ import Contacto from "./routes/Contacto";
 import Detalle from "./routes/Detalle";
 import Favoritos from "./routes/Favoritos";
 import Home from "./routes/Home";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
             <Route path="/contact" element={<Contacto />} />
             <Route path="/*" element={<Cards />} />
           </Routes>
+          <Footer /> 
         </Router>
       </UserProvider>
     </FavoritosProvider>
