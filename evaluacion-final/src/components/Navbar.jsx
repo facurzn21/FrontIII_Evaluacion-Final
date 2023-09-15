@@ -8,28 +8,28 @@ const AppNavbar = () => {
       <Nav>
         <NavItem>
           <RSNavLink>
-            <NavLink exact to="/home">
+            <NavLink to="/home">
               Home
             </NavLink>
           </RSNavLink>
         </NavItem>
         <NavItem>
           <RSNavLink>
-            <NavLink exact to="/fav">
+            <NavLink to="/fav">
               Favoritos
             </NavLink>
           </RSNavLink>
         </NavItem>
         <NavItem>
           <RSNavLink>
-            <NavLink exact to="/details">
+            <NavLink to="/details">
               Detalle
             </NavLink>
           </RSNavLink>
         </NavItem>
         <NavItem>
           <RSNavLink>
-            <NavLink exact to="/contact">
+            <NavLink to="/contact">
               Contacto
             </NavLink>
           </RSNavLink>

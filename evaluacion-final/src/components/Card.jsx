@@ -2,22 +2,17 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardBody, CardTitle, CardSubtitle, Button, Row, Col, Container, } from 'reactstrap';
 import { UserContext } from '../contexts/UserContext';
-import { FavoritosContext } from '../contexts/FavoritesContext';
 import doctorImage from '../../public/images/doctor.jpg';
 import './Card.css';
 
 const MyCard = ({ user }) => {
+  const { favorites, addOrRemoveFavorite } = useContext(UserContext);
   const navigate = useNavigate();
-  const { favoritos, agregarFavorito, borrarFavorito } = useContext(FavoritosContext);
-
-  const isFavorite = favoritos.some(fav => fav.id === user.id);
+  const isFavorite = favorites.some(fav => fav.id === user.id);
 
   const toggleFavorite = () => {
-    if (isFavorite) {
-      borrarFavorito(user);
-    } else {
-      agregarFavorito(user);
-    }
+    // Aquí lo manejamos con una sola función la adición y remoción de favoritos.
+    addOrRemoveFavorite(user);
   };
 
   return (
@@ -27,14 +22,14 @@ const MyCard = ({ user }) => {
       </div>
       <CardBody>
         <CardTitle tag="h6">{user.name}</CardTitle>
-        <CardSubtitle tag="h7" className="mb-2 text-muted">{user.username}</CardSubtitle>
+        <CardSubtitle tag="h6" className="mb-2 text-muted">{user.username}</CardSubtitle>
       </CardBody>
       <Button
-      className={`favoriteBtn ${isFavorite ? "favorite" : ""}`}
-      onClick={toggleFavorite}
-    >
-      ☆
-    </Button>
+        className={`favoriteBtn ${isFavorite ? "favorite" : ""}`}
+        onClick={toggleFavorite}
+      >
+        ☆
+      </Button>
       <Button
         className="detailsBtn mt-3"
         onClick={() => navigate(`/details/${user.id}`)}

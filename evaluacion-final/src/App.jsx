@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import { UserProvider } from "./contexts/UserContext";
-import { FavoritosProvider } from "./contexts/FavoritesContext";
 import Cards from "./components/Card";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AppNavbar from "./components/Navbar";
@@ -13,22 +12,19 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <FavoritosProvider>
-     
-      <UserProvider>
-        <Router>
-          <AppNavbar />
-          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/fav" element={<Favoritos />} />
-            <Route path="/details/:id?" element={<Detalle />} />
-            <Route path="/contact" element={<Contacto />} />
-            <Route path="/*" element={<Cards />} />
-          </Routes>
-          <Footer /> 
-        </Router>
-      </UserProvider>
-    </FavoritosProvider>
+    <UserProvider>
+      <Router>
+        <AppNavbar />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/fav" element={<Favoritos />} />
+          <Route path="/details/:id?" element={<Detalle />} />
+          <Route path="/contact" element={<Contacto />} />
+          <Route path="/*" element={<Cards />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </UserProvider>
   );
 };
 

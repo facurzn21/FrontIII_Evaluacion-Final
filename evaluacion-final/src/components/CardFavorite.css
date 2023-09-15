@@ -1,0 +1,45 @@
+.myCard {
+  margin: 15px 0;
+  min-height: 320px;
+  max-height: 320px;
+}
+
+/*
+.myCard:hover {
+  cursor: pointer;
+  background-color: #d3d3d3; 
+}
+*/
+
+.cardImage {
+  height: 100px;
+}
+
+.cardImg {
+  width: 60%;
+  height: auto;
+}
+
+.favoriteBtn {
+  background: transparent;
+  border: 1px solid;
+  color: grey;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-bottom: -12px;
+  margin-left: 80px;
+}
+
+.favoriteBtn.favorite {
+  background: #b2ffff;
+  color: blue;
+}
+
+.favoriteBtn.favorite:hover {
+  background: #87cefa;
+  color: #ffffff;
+}

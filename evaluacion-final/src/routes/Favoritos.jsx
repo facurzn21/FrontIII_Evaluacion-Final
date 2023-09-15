@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import MyCard from "../components/Card";
+import CardFavorite from "../components/CardFavorite";
 import { UserContext } from "../contexts/UserContext";
 
 const Favs = () => {
@@ -10,7 +10,7 @@ const Favs = () => {
       <h1>Dentists Favs</h1>
       <div className="card-grid">
         {favorites.map((user) => (
-          <MyCard user={user} key={user.id} />
+          <CardFavorite user={user} key={user.id} /> // Y aquí también
         ))}
       </div>
     </>

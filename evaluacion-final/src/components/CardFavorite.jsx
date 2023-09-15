@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { UserContext } from "../contexts/UserContext";
-import doctorImage from "../../public/images/doctor.jpg";
-import "./Card.css";
+import "./CardFavorite.css";
+import { Card, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import doctorImage from '../../public/images/doctor.jpg';
 
 const CardFavorite = ({ user }) => {
   console.log(`Rendering ${user.name}`);

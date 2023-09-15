@@ -1,12 +1,13 @@
 import React, { createContext, useState, useEffect } from "react";
 
+
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+  //Importer los favoritos del local storage si existen, de lo contrario usar un array vacio
+  const initialFavorites = JSON.parse(localStorage.getItem("favoritos")) || [];
   const [users, setUsers] = useState([]);
-  const [favorites, setFavorites] = useState(
-    JSON.parse(localStorage.getItem("favorites")) || []
-  );
+  const [favorites, setFavorites] = useState(initialFavorites);
   console.log(favorites);
 
   useEffect(() => {
@@ -16,9 +17,9 @@ export const UserProvider = ({ children }) => {
       .then((data) => setUsers(data));
   }, []);
 
+  // Guardar en el local storage cada vez que 'favorites' cambie
   useEffect(() => {
-    // almacenar los favoritos en el localstorage
-    localStorage.setItem("favorites", JSON.stringify(favorites));
+    localStorage.setItem("favoritos", JSON.stringify(favorites));
   }, [favorites]);
 
   const addOrRemoveFavorite = (user) => {
