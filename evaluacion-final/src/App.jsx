@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import { UserProvider } from "./contexts/UserContext";
 import Cards from "./components/Card";
@@ -9,11 +9,26 @@ import Detalle from "./routes/Detalle";
 import Favoritos from "./routes/Favoritos";
 import Home from "./routes/Home";
 import Footer from "./components/Footer";
+import { ThemeProvider, ThemeContext } from "./contexts/ThemeContext";
+import "./contexts/ThemeContext.css";
 
 const App = () => {
   return (
     <UserProvider>
-      <Router>
+      <ThemeProvider>
+        <Theme />
+      </ThemeProvider>
+    </UserProvider>
+  );
+};
+
+export default App;
+
+const Theme = () => {
+  const { darkMode } = useContext(ThemeContext);
+  return (
+    <Router>
+      <div className={darkMode ? "theme-dark" : "theme-light"}>
         <AppNavbar />
         <Routes>
           <Route path="/home" element={<Home />} />
@@ -23,9 +38,7 @@ const App = () => {
           <Route path="/*" element={<Cards />} />
         </Routes>
         <Footer />
-      </Router>
-    </UserProvider>
+      </div>
+    </Router>
   );
 };
-
-export default App;
