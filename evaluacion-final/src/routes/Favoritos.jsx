@@ -10,7 +10,7 @@ const Favs = () => {
       <h1>Dentists Favs</h1>
       <div className="card-grid">
         {favorites.map((user) => (
-          <CardFavorite user={user} key={user.id} /> // Y aquí también
+          <CardFavorite user={user} key={user.id} />
         ))}
       </div>
     </>

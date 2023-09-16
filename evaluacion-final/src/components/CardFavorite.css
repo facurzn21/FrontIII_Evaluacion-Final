@@ -1,22 +1,25 @@
-.myCard {
-  margin: 15px 0;
-  min-height: 320px;
-  max-height: 320px;
+.myCard2 {
+  margin: 15px;
+  min-height: 400px;
+  max-height: 400px;
+  min-width: 300px;
+  max-width: 300px;
 }
 
-/*
-.myCard:hover {
-  cursor: pointer;
-  background-color: #d3d3d3; 
+.card-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 16px;
 }
-*/
 
-.cardImage {
+.cardImage2 {
   height: 100px;
+  width: 100px;
 }
 
-.cardImg {
-  width: 60%;
+.cardImg2 {
+  width: 100%;
   height: auto;
 }
 

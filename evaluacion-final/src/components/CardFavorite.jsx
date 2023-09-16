@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
 import "./CardFavorite.css";
-import { Card, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
-import doctorImage from '../../public/images/doctor.jpg';
+import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
+import doctorImage from "../../public/images/doctor.jpg";
 
 const CardFavorite = ({ user }) => {
   console.log(`Rendering ${user.name}`);
@@ -13,9 +13,9 @@ const CardFavorite = ({ user }) => {
   const isFavorite = favorites.some((fav) => fav.id === user.id);
 
   return (
-    <Card className="myCard">
-      <div className="cardImage">
-        <img className="cardImg" src={doctorImage} alt="Doctor" />
+    <Card className="myCard2">
+      <div className="cardImage2">
+        <img className="cardImg2" src={doctorImage} alt="Doctor" />
       </div>
       <CardBody>
         <CardTitle tag="h6">{user.name}</CardTitle>
